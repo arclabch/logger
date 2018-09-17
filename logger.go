@@ -173,27 +173,24 @@ func SetVerbose(b bool) {
 // Logs an Emergency-evel event.
 // Emergency messages will always be sent to Syslog and printed on screen.
 // Returns an error if unable to log it.
-func Emergency(message string) error {
+func Emerg(message string) error {
 	PrintToScreen(L_EMERGENCY, message)
 	err := s.Emerg(message)
 	return err
 }
 
 // Logs an Alert-level event.
+// Alert messages will always be sent to Syslog and printed on screen.
 // Returns an error if unable to log it.
 func Alert(message string) error {
-	if debug == true {
-		PrintToScreen(L_ALERT, message)
-		return nil
-	} else {
-		err := s.Alert(message)
-		return err
-	}
+	PrintToScreen(L_ALERT, message)
+	err := s.Alert(message)
+	return err
 }
 
 // Logs a Critical-level event.
 // Returns an error if unable to log it.
-func Critical(message string) error {
+func Crit(message string) error {
 	if debug == true {
 		PrintToScreen(L_CRITICAL, message)
 		return nil
@@ -205,7 +202,7 @@ func Critical(message string) error {
 
 // Logs an Error-level event.
 // Returns an error if unable to log it.
-func Error(message string) error {
+func Err(message string) error {
 	if debug == true {
 		PrintToScreen(L_ERROR, message)
 		return nil
