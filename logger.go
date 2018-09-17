@@ -46,14 +46,14 @@ const (
 	L_DEBUG      = 7
 
 	// Message header
-	M_EMERGENCY  = "EMERGENCY"
-	M_ALERT      = "ALERT    "
-	M_CRITICAL   = "CRITICAL "
-	M_ERROR      = "ERROR    "
-	M_WARNING    = "WARNING  "
-	M_NOTICE     = "NOTICE   "
-	M_INFO       = "INFO     "
-	M_DEBUG      = "DEBUG    "
+	M_EMERGENCY  = " EMERGENCY "
+	M_ALERT      = " ALERT     "
+	M_CRITICAL   = " CRITICAL  "
+	M_ERROR      = " ERROR     "
+	M_WARNING    = " WARNING   "
+	M_NOTICE     = " NOTICE    "
+	M_INFO       = " INFO      "
+	M_DEBUG      = " DEBUG     "
 )
 
 var (
@@ -130,10 +130,10 @@ func PrintToScreen(level int, message string) {
 		mColor  = C_MAGENTA
 		mHeader = M_WARNING
 	case L_NOTICE:
-		mColor  = C_CYAN
+		mColor  = C_BLUE
 		mHeader = M_NOTICE
 	case L_INFO:
-		mColor  = C_WHITE
+		mColor  = C_CYAN
 		mHeader = M_INFO
 	case L_DEBUG:
 		mColor  = C_GREEN
@@ -146,7 +146,7 @@ func PrintToScreen(level int, message string) {
 		mReset = ""
 	}
 
-	fmt.Printf("%s - %s%s%s %s\n", time.Now().Format(time.RFC3339), mColor, mHeader, mReset, message)
+	fmt.Printf("%s%s%s %s: %s\n", mColor, mHeader, mReset, time.Now().Format("2006-01-02 15:04:05"), message)
 }
 
 // Disable colors in messages printed to screen.
