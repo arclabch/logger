@@ -25,10 +25,10 @@ func main() {
         logger.SetVerbose(true)
 
         m := "Test Message - Disregard."
-        logger.Emergency(m)
+        logger.Emerg(m)
         logger.Alert(m)
-        logger.Critical(m)
-        logger.Error(m)
+        logger.Crit(m)
+        logger.Err(m)
         logger.Warning(m)
         logger.Notice(m)
         logger.Info(m)
