@@ -1,7 +1,7 @@
 logger
 ======
 
-`logger` is a simple Go package wrapping around Go's `log\syslog` package.
+`logger` is a simple Go package wrapping around Go's `log/syslog` package.
 
 Usage example:
 
